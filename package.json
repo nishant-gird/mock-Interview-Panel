@@ -1,0 +1,28 @@
+{
+  "name": "mip-monorepo",
+  "version": "1.0.0",
+  "description": "MIP (Mock Interview Panel) - AI-powered mock interview scheduling platform",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "type-check": "turbo type-check",
+    "test": "turbo test",
+    "format": "prettier --write .",
+    "generate:docs": "node scripts/generate-setup-guide.js"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "eslint": "^8.55.0",
+    "eslint-config-next": "^14.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.1.0",
+    "turbo": "^1.10.16",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "docx": "^9.6.1"
+  }
+}
