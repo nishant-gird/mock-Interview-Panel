@@ -2,11 +2,14 @@
 
 An AI-powered mock interview scheduling and session platform. Practice technical, HR, and managerial interviews with an AI panel. Get instant, detailed feedback and track your progress over time.
 
+> 📖 **[Complete Setup Guide (SETUP.md)](./SETUP.md)** — Step-by-step instructions for Windows, macOS, and Linux
+
 ## Quick Start
 
 ### Prerequisites
-- Node.js 18+
+- Node.js 20+ (LTS)
 - pnpm 8+
+- Git 2.x+
 
 ### Installation & Development
 
