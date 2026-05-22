@@ -3,6 +3,8 @@
 An AI-powered mock interview scheduling and session platform. Practice technical, HR, and managerial interviews with an AI panel. Get instant, detailed feedback and track your progress over time.
 
 > 📖 **[Complete Setup Guide (SETUP.md)](./SETUP.md)** — Step-by-step instructions for Windows, macOS, and Linux
+>
+> 🎨 **[Lovable UI Integration (LOVABLE_INTEGRATION.md)](./LOVABLE_INTEGRATION.md)** — How to design components in Lovable and export to MIP
 
 ## Quick Start
 
