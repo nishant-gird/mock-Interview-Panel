@@ -5,6 +5,8 @@ An AI-powered mock interview scheduling and session platform. Practice technical
 > 📖 **[Complete Setup Guide (SETUP.md)](./SETUP.md)** — Step-by-step instructions for Windows, macOS, and Linux
 >
 > 🎨 **[Lovable UI Integration (LOVABLE_INTEGRATION.md)](./LOVABLE_INTEGRATION.md)** — How to design components in Lovable and export to MIP
+>
+> 🎯 **[Lovable Pixel Perfect Integration (LOVABLE_PIXEL_PERFECT.md)](./LOVABLE_PIXEL_PERFECT.md)** — Export your Lovable app URL and integrate exactly
 
 ## Quick Start
 
