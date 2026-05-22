@@ -1,27 +1,80 @@
-# Dependencies
-node_modules/
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules
+package-lock.json
+bun.lock
+pnpm-lock.yaml
 
 # Build outputs
-.next/
-dist/
-build/
-*.tsbuildinfo
+dist
+dist-ssr
+build
+.output
+.vinxi
+.nitro
+*.local
+.next
 
-# Environment
+# Development
+.turbo
+.cache
+.vite
+
+# Tanstack/Vite specific
+.tanstack/**
+!.tanstack/.gitkeep
+
+# Wrangler / Cloudflare Workers
+.wrangler/
+.dev.vars
+wrangler-assets
+
+# Environment variables
+.env
 .env.local
 .env.*.local
+.env.prod.local
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+# IDE & Editor
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.iml
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
 # OS
-.DS_Store
 Thumbs.db
+.AppleDouble
+.LSOverride
+*.rej
 
-# Turbo
-.turbo/
+# Lovable
+.lovable/node_modules
+.lovable/dist
+.lovable/.env.local
+
+# Testing
+coverage
+.nyc_output
+
