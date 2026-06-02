@@ -1,0 +1,148 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ===== USER MODEL =====
+model User {
+  id              String      @id @default(uuid())
+  email           String      @unique
+  passwordHash    String
+  name            String
+  experienceYears Int?
+  targetRole      String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  // Relations
+  interviews      Interview[]
+  sessions        Session[]
+
+  @@map("users")
+}
+
+// ===== INTERVIEW MODEL =====
+model Interview {
+  id              String      @id @default(uuid())
+  userId          String
+  role            String
+  difficulty      String
+  panelTypes      String[]
+  status          String      @default("scheduled")
+  totalScore      Float?
+  averageScore    Float?
+  startedAt       DateTime?
+  completedAt     DateTime?
+  durationSeconds Int?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  // Relations
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  responses       Response[]
+  session         Session?
+
+  @@index([userId])
+  @@map("interviews")
+}
+
+// ===== QUESTION MODEL =====
+model Question {
+  id              String      @id @default(uuid())
+  role            String
+  difficulty      String
+  category        String
+  content         String      @db.Text
+  expectedPoints  String      @db.Text
+  sampleAnswers   String      @db.Text
+  embedding       Json?
+  embeddingVersion Int         @default(1)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  // Relations
+  responses       Response[]
+
+  @@index([role, difficulty])
+  @@map("questions")
+}
+
+// ===== RESPONSE MODEL =====
+model Response {
+  id              String      @id @default(uuid())
+  interviewId     String
+  questionId      String
+  answerText      String      @db.Text
+  aiScore         Float?
+  aiFeedback      String      @db.Text
+  strengths       String[]
+  improvements    String[]
+  submittedAt     DateTime    @default(now())
+
+  // Relations
+  interview       Interview   @relation(fields: [interviewId], references: [id], onDelete: Cascade)
+  question        Question    @relation(fields: [questionId], references: [id])
+  context         ResponseContext?
+
+  @@index([interviewId])
+  @@index([questionId])
+  @@map("responses")
+}
+
+// ===== RESPONSE CONTEXT MODEL =====
+model ResponseContext {
+  id              String    @id @default(cuid())
+  responseId      String    @unique
+  response        Response  @relation(fields: [responseId], references: [id], onDelete: Cascade)
+
+  strengths       String[]
+  weaknesses      String[]
+  keywords        String[]
+  conceptsMatched String[]
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([responseId])
+  @@map("response_contexts")
+}
+
+// ===== SESSION MODEL =====
+model Session {
+  id              String      @id @default(uuid())
+  userId          String
+  interviewId     String      @unique
+  durationSeconds Int
+  totalScore      Float
+  averageScore    Float
+  status          String
+  completedAt     DateTime    @default(now())
+
+  // Relations
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  interview       Interview   @relation(fields: [interviewId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("sessions")
+}
+
+// ===== REPORT MODEL =====
+model Report {
+  id              String      @id @default(uuid())
+  interviewId     String      @unique
+  userId          String
+  overallScore    Float
+  categoryScores  Json
+  strengths       String[]
+  improvements    String[]
+  recommendations String[]
+  generatedAt     DateTime    @default(now())
+
+  @@map("reports")
+}

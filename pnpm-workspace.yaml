@@ -1,0 +1,10 @@
+# pnpm workspaces configuration
+# This file tells pnpm which directories contain package.json files to manage as a monorepo
+
+packages:
+  - 'packages/*'
+  - 'docs'
+
+strictPeerDependencies: false
+auto-install-peers: true
+
