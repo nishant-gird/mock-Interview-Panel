@@ -1,34 +1,148 @@
+# ==========================================
 # Dependencies
-node_modules
-.pnpm-store
+# ==========================================
+node_modules/
+.pnpm-store/
+.yarn/cache/
+.yarn/install-state.gz
 
-# Build artifacts
+# ==========================================
+# Build artifacts & compiled files
+# ==========================================
 dist/
 build/
 coverage/
 *.tsbuildinfo
+*.js.map
+*.d.ts.map
+out/
+.next/
+.nuxt/
+.cache/
 
-# Environment
+# ==========================================
+# Environment & Secrets
+# ==========================================
 .env
 .env.local
 .env.*.local
+.env.production.local
+.env.test.local
+.env.development.local
+.secrets
+secrets/
 
-# IDE
+# ==========================================
+# IDE & Editor files
+# ==========================================
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+.DS_Store
+.AppleDouble
+.LSOverride
+*.iml
+*.iws
+*.ipr
 *.swp
 *.swo
 *~
+.project
+.classpath
+.settings/
+.history/
 
-# OS
+# ==========================================
+# OS & System files
+# ==========================================
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
 
-# Logs
+# ==========================================
+# Logs & Temporary files
+# ==========================================
 *.log
+*.logs
 npm-debug.log*
 pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+*.pid
+*.seed
+*.pid.lock
+.npm
+.eslintcache
+.stylelintcache
 
-# Package managers
+# ==========================================
+# Package manager lock files (keep one)
+# ==========================================
 package-lock.json
+yarn.lock
+bun.lockb
 bun.lock
+
+# ==========================================
+# Test & Coverage
+# ==========================================
+coverage/
+.nyc_output/
+*.lcov
+.c8/
+
+# ==========================================
+# Database & Persistence
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
+*.pem
+*.key
+
+# ==========================================
+# Temporary files
+# ==========================================
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+.~*
+~*
+
+# ==========================================
+# Build system files
+# ==========================================
+dist-ssr/
+*.ssr.json
+out/
+!.gitkeep
+
+# ==========================================
+# Platform specific
+# ==========================================
+.wrangler/
+.turbo/
+.venv/
+venv/
+env/
+
+# ==========================================
+# IDE plugins
+# ==========================================
+.eslintignore
+.eslintcache
+.prettierignore
+.prettierignore.cache
+
